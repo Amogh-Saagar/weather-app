@@ -1,0 +1,283 @@
+/* Global */
+:root{
+    --bg:#f3f6f8;
+    --panel:#ffffff;
+    --muted:#9aa4ad;
+    --accent:#e67e22;
+    --nav:#2b3a42;
+    --nav-hover:#233038;
+    --text:#0f1720;
+}
+
+html, body{
+    height:100%;
+    margin:0;
+    background: linear-gradient(180deg, var(--bg) 0%, #eef2f5 100%);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* Navigation */
+#navigation{
+    list-style: none;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0 18px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(90deg, var(--nav) 0%, #24343b 100%);
+    box-shadow: 0 2px 8px rgba(15,20,24,0.12);
+}
+
+#mobile-nav{
+    list-style: none;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0 18px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(90deg, var(--nav) 0%, #24343b 100%);
+    box-shadow: 0 2px 8px rgba(15,20,24,0.12);
+}
+
+#navigation li{
+    margin: 0;
+}
+
+/* keep existing block classes but override floats for predictable layout */
+.block{
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.block.left{
+    margin-right: 6px;
+}
+
+.block.right{
+    margin-left: auto; /* pushes to the right end */
+}
+
+/* link styles */
+.block a{
+    display:block;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-weight:600;
+    transition: background .15s, color .15s;
+}
+
+.block a:hover{
+    background: var(--nav-hover);
+    color: #fff;
+}
+
+/* Content area - ensure offset for fixed header */
+#content{
+    background-color: rgba(128,128,128,0.04);
+    margin: 0 auto;
+    padding-top: 84px; /* space for fixed header + breathing room */
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: calc(100vh - 84px);
+    display: grid;
+    gap: 18px;
+    max-width: 1100px;
+}
+
+/* info heading */
+#info{
+    font-size: 20px;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* Search */
+#search-wrapper{
+    width: 48%;
+    max-width: 700px;
+    display:flex;
+    position: relative;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:8px;
+    height: 42px;
+    overflow: hidden;
+    border: 1px solid rgba(15,20,24,0.08);
+    border-radius: 10px;
+    background: linear-gradient(180deg,#fff,#fbfdfe);
+    box-shadow: 0 2px 10px rgba(15,20,24,0.03);
+    scroll-margin-top: 96px; /* offset for fixed nav when anchored */
+}
+
+.search-input{
+    border: none;
+    flex-grow: 1;
+    padding: 10px 16px;
+    outline: none;
+    font-size: 15px;
+    background: transparent;
+}
+
+.search-submit{
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    padding: 0 16px;
+    cursor: pointer;
+    font-weight:700;
+    border-radius: 0 8px 8px 0;
+    transition: background .12s;
+}
+
+.search-submit:hover{
+    background: #cf6c1a;
+}
+
+/* Main content card */
+#main-content{
+    align-items: center;
+    display: none; /* toggled by JS */
+    grid-template-rows: auto auto;
+    gap: 18px;
+    padding: 22px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,250,0.9));
+    border-radius: 12px;
+    border: 1px solid rgba(15,20,24,0.06);
+    box-shadow: 0 8px 30px rgba(12,20,24,0.06);
+}
+
+/* center area */
+.main-center{
+    text-align:center;
+}
+
+.main-center img{
+    width:96px;
+    height:96px;
+    object-fit:contain;
+    margin-bottom: 8px;
+}
+
+/* two-column stats area */
+.main-main{
+    overflow: visible;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding-top: 8px;
+}
+
+.main-left, .main-right{
+    padding: 8px 12px;
+}
+
+.main-left p, .main-right p{
+    margin: 8px 0;
+    color: #263238;
+    font-weight:600;
+}
+
+/* About */
+#about{
+    background-color: var(--panel);
+    padding: 36px;
+    margin-top: 12px;
+    display:flex;
+    gap: 20px;
+    align-items:center;
+    border-radius: 12px;
+    border: 1px solid rgba(15,20,24,0.04);
+    box-shadow: 0 6px 20px rgba(12,20,24,0.04);
+}
+
+.about-text p{
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* ensure the about icon stays a perfect square and isn't squished */
+img.square-logo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;    /* crop to fill square without stretching */
+    display: block;
+    border-radius: 8px;   /* optional: rounded corners */
+}
+
+/* responsive: scale down on small screens while keeping square ratio */
+@media (max-width: 600px) {
+    img.square-logo {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* Footer */
+#footer{
+    background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+    color: #374151;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display:block;
+    padding: 18px 12px;
+    margin-top: 18px;
+    border-top: 1px solid rgba(15,20,24,0.03);
+}
+
+/* Unit toggle */
+.unit-toggle-wrapper{
+    margin-top: 12px;
+    display:flex;
+    justify-content:center;
+}
+
+#unit-toggle{
+    background: #444;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background .12s, transform .08s;
+}
+
+#unit-toggle[aria-pressed="true"]{
+    background: var(--accent);
+    color: #000;
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 900px){
+    #search-wrapper{ width: 75%; }
+    .main-main{ grid-template-columns: 1fr; }
+    #about{ flex-direction: column; text-align:center; }
+}
+
+@media (max-width: 600px){
+    #search-wrapper{ width: 92%; margin-top: 12px; height: 44px; }
+    #content{ padding-top: 92px; }
+    #navigation{ flex-direction: column; height:auto; top:64px; display: none;} 
+    .main-center img{ width:72px; height:72px; }
+}

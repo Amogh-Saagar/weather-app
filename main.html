@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link href="styles.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Weather App</title>
+    <link href="icon.png" rel="icon" type="image/png"/>
+    </head>
+    <body>
+
+        <header>
+            <ul id = "mobile-nav">
+                <li class = "block"><a onclick="toggleMobileMenu()">Menu</a></li>
+            <ul id="navigation">
+                <li class = "block"><a href="#search-wrapper">Search</a></li>
+                <li class = "block"><a href="#main-content">Weather Info</a></li>
+                <li class = "block"><a href="#about">About Us</a></li>
+                <li style="flex: 1;"></li>  <!-- spacer to push right items -->
+                <li class = "block nu"><a href="login.html">Login</a></li>
+                <li class = "block nu"><a href="signup.html">Sign Up</a></li>
+                <li class = "block u"><a onclick="logout()">Log Out</a></li>
+            </ul>
+        </header>
+
+        <datalist id = "cities">
+        </datalist>
+
+        <div id = "content">
+            <div>
+                <h1 id="info"></h1>
+            </div>
+            <div id="search-wrapper">
+                <input type="text" placeholder="Search a city..." class="search-input" list="cities">
+                <button type="submit" class="search-submit" onclick="search()">Search</button>
+            </div>
+
+
+            <div id = "main-content">
+                <div class = "main-center">
+                    <img id="icon" src="" alt="Weather Icon">
+                    <h1 id="city">PLACE</h1>
+                    <h4 id="region">REGION</h4>
+                    <h4 id="condition">CONDITION</h4>
+                    <!-- TODO toogle button -->
+                    <div class="unit-toggle-wrapper">
+                        <button id="unit-toggle" type="button" onclick="toggleUnit()" aria-pressed="false" title="Toggle Celsius / Fahrenheit">°C</button>
+                    </div>
+                </div>
+                <!-- TODO toogle button -->
+                <div class = "main-main">
+                    <div class = "main-left">
+                        <p class="l" id="temp">Temperature: </p>
+                        <p class="l" id="hum">Humidity: </p>
+                        <p class="l" id="cloud">Cloud: </p>
+                        <p class="l" id="fl">Feels like: </p>
+                        <p class="l" id="vis">Visibility: </p>
+                    </div>
+                    <div class = "main-right">
+                        <p class="r" id="winspd">Wind Speed: </p>
+                        <p class="r" id="windir">Wind Direction: </p>
+                        <p class="r" id="hi">Heat Index: </p>
+                        <p class="r" id="dp">Dew Point: </p>
+                        <p class="r" id="uv">UV Index: </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="about">
+            <div class="about-text">
+                <h2>About Us</h2>
+                <p>This weather application provides current weather information for any city you search for. It displays details such as temperature, humidity, wind speed, and more.</p>
+            </div>
+            <div class="about-image">
+                <img src="icon.png" alt="Weather Image" class="square-logo">
+            </div>
+        </div>
+
+
+
+        <div id="footer">
+            <h4>Developed by Amogh Saagar Gopinath</h4>
+            <a href="./TnC.html" target="_blank">Terms and Conditions</a>
+            <a href="./privacy_policy.html" target="_blank">Privacy Policy</a>
+            <a href="./copyright.html" target="_blank">Copyright Information</a>
+            <a href="https://github.com/Amogh-Saagar" target="_blank"><img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="github" width = "25" height = "25"></a>   
+            <a href="https://www.linkedin.com/in/amogh-saagar-gopinath-732a1336a/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png?20140125013055" alt="github" width = "25" height = "25"></a>   
+        </div>
+        <script src="scripts.js"></script>
+    </body>
+</html>
