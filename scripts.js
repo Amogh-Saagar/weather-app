@@ -50,7 +50,7 @@ async function search(event){
         alert("Please enter a city name.");
         return;
     }
-    const APIlink = `http://api.weatherapi.com/v1/current.json?key=${APIkey}&q=${loc}&aqi=no`;
+    const APIlink = `https://api.weatherapi.com/v1/current.json?key=${APIkey}&q=${loc}&aqi=no`;
     const response = await fetch(APIlink);
     if(response.status == 403){
         APIkey = prompt("Invalid APIkey! Please enter your API Key.");
@@ -115,7 +115,7 @@ async function update_preferences(){
     if (q.length < 1){
         return;
     }
-    const APIlink = `http://api.weatherapi.com/v1/search.json?key=${APIkey}&q=${q}&aqi=no`;
+    const APIlink = `https://api.weatherapi.com/v1/search.json?key=${APIkey}&q=${q}&aqi=no`;
     const response = await fetch(APIlink);
     const data = await response.json();
     if(response.status == 403){
